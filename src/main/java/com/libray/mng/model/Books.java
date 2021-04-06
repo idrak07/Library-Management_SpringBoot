@@ -1,20 +1,34 @@
 package com.libray.mng.model;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-public class Book {
+@Entity
+public class Books {
 
     /*Variable Declaration*/
-    private String id;
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private Integer id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "qty")
     private int qty;
+
+    @Column(name = "price")
     private double price;
 
     /*Default Controller*/
-    public Book() {
+    public Books() {
 
     }
 
     /*Parameterised Controller*/
-    public Book(String id, String name, int qty, double price) {
+    public Books(int id, String name, int qty, double price) {
         this.id = id;
         this.name = name;
         this.qty = qty;
@@ -22,11 +36,11 @@ public class Book {
     }
 
     /*All Getter Setter*/
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

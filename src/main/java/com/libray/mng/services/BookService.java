@@ -1,6 +1,6 @@
 package com.libray.mng.services;
 
-import com.libray.mng.model.Book;
+import com.libray.mng.model.Books;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -8,34 +8,39 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
-public class BookService {
-    List<Book> books= new ArrayList<>(Arrays.asList(
-            new Book("book-01", "C++", 10, 100),
-            new Book("book-02", "Java", 5, 520),
-            new Book("book-03", "C#", 7, 340),
-            new Book("book-04", "PHP", 8, 150)
+public interface BookService {
+
+    /*List<Books> books= new ArrayList<>(Arrays.asList(
+            new Books(1, "C++", 10, 100),
+            new Books(2, "Java", 5, 520),
+            new Books(3, "C#", 7, 340),
+            new Books(4, "PHP", 8, 150)
     ));
-    public List<Book> getBooks(){
+    public List<Books> getBooks(){
         return books;
     }
 
-    public Book getBook(String id){
-        return books.stream().filter(t->t.getId().equals(id)).findFirst().get();
+    public Books getBook(int id){
+        return books.stream().filter(t->t.getId()==id).findFirst().get();
     }
 
-    public void addBook(Book book){
+    public void addBook(Books book){
         books.add(book);
     }
-    public void updateBook(String id, Book book){
+    public void updateBook(int id, Books
+            book){
         for (int i=0 ; i<books.size(); i++){
-            Book b = books.get(i);
-            if(b.getId().equals(id)){
+            Books b = books.get(i);
+            if(b.getId()==id){
                 books.set(i, book);
                 return;
             }
         }
     }
-    public void deleteBook(String id){
-        books.removeIf(t-> t.getId().equals(id));
-    }
+    public void deleteBook(int id){
+        books.removeIf(t-> t.getId()==id);
+    }*/
+
+    public List<Books> fetchAllBooks();
+
 }
