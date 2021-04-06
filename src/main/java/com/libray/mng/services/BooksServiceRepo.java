@@ -8,14 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class BooksServiceRepo implements BookService {
+public class BooksServiceRepo {
 
-    @Autowired
-    private BooksRepository booksRepository;
-
-
-    @Override
-    public List<Books> fetchAllBooks() {
-        return booksRepository.findAll();
-    }
 }
