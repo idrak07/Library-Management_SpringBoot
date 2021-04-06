@@ -3,7 +3,7 @@ package com.libray.mng.model;
 public class Book {
 
     /*Variable Declaration*/
-    private int id;
+    private String id;
     private String name;
     private int qty;
     private double price;
@@ -14,7 +14,7 @@ public class Book {
     }
 
     /*Parameterised Controller*/
-    public Book(int id, String name, int qty, double price) {
+    public Book(String id, String name, int qty, double price) {
         this.id = id;
         this.name = name;
         this.qty = qty;
@@ -22,11 +22,11 @@ public class Book {
     }
 
     /*All Getter Setter*/
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
