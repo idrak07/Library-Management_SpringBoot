@@ -35,14 +35,13 @@ public class BookController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/update/{id}")
-    public void updateBooks(@RequestBody Books books, @PathVariable Integer id){
-        /*if(){
+    public String  updateBooks(@RequestBody Books books, @PathVariable Integer id){
+        if(bookService.updateBooks(books, id)){
             return "Book with this id has been Updated";
         }
         else{
             return "No Book exists with this id";
-        }*/
-        bookService.updateBooks(books, id);
+        }
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/delete/{id}")

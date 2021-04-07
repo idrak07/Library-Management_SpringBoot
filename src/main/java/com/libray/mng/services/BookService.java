@@ -32,12 +32,18 @@ public class BookService {
         return booksRepository.findByName(name);
     }
 
-    public void updateBooks(Books books, Integer id){
-        Books books1= booksRepository.findBooksById(id);
-        books1.setName(books.getName());
-        books1.setQty(books.getQty());
-        books1.setPrice(books.getPrice());
-        booksRepository.save(books1);
+    public boolean updateBooks(Books books, Integer id){
+        if(booksRepository.existsById(id)){
+            Books books1= booksRepository.findBooksById(id);
+            books1.setName(books.getName());
+            books1.setQty(books.getQty());
+            books1.setPrice(books.getPrice());
+            booksRepository.save(books1);
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public boolean deleteBooks(Integer id){

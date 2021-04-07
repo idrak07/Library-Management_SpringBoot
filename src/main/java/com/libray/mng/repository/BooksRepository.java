@@ -11,5 +11,5 @@ import java.util.Optional;
 public interface BooksRepository extends JpaRepository<Books, Integer> {
     Books findBooksById(Integer id);
     Optional<Books> findByName(String name);
-    void deleteById(Integer id);
+
 }
