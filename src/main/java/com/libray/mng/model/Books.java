@@ -13,21 +13,21 @@ public class Books {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "authorid")
+    private Integer authorId;
     @Column(name = "qty")
     private int qty;
 
     @Column(name = "price")
     private double price;
 
-    /*Default Controller*/
     public Books() {
-
     }
 
-    /*Parameterised Controller*/
-    public Books(Integer id, String name, int qty, double price) {
+    public Books(Integer id, String name, Integer authorId, int qty, double price) {
         this.id = id;
         this.name = name;
+        this.authorId = authorId;
         this.qty = qty;
         this.price = price;
     }
@@ -48,6 +48,14 @@ public class Books {
         this.name = name;
     }
 
+    public Integer getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(Integer authorId) {
+        this.authorId = authorId;
+    }
+
     public int getQty() {
         return qty;
     }
@@ -64,13 +72,12 @@ public class Books {
         this.price = price;
     }
 
-    /*toString*/
-
     @Override
     public String toString() {
-        return "Book{" +
+        return "Books{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", authorId=" + authorId +
                 ", qty=" + qty +
                 ", price=" + price +
                 '}';

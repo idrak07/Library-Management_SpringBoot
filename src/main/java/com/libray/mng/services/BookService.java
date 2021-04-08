@@ -36,6 +36,7 @@ public class BookService {
         if(booksRepository.existsById(id)){
             Books books1= booksRepository.findBooksById(id);
             books1.setName(books.getName());
+            books1.setAuthorId(books.getAuthorId());
             books1.setQty(books.getQty());
             books1.setPrice(books.getPrice());
             booksRepository.save(books1);
