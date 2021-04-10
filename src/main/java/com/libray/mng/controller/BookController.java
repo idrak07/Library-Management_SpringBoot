@@ -36,9 +36,14 @@ public class BookController {
 
     @RequestMapping(method = RequestMethod.PUT, value = "/update/{id}")
     public String  updateBooks(@RequestBody Books books, @PathVariable Integer id){
-        if(bookService.updateBooks(books, id)){
+        int flag= bookService.updateBooks(books, id);
+        if(flag==1){
             return "Book with this id has been Updated";
         }
+        else if(flag==2){
+            return "Trying to breach Author Data";
+        }
+
         else{
             return "No Book exists with this id";
         }

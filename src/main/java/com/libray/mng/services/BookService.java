@@ -3,7 +3,6 @@ package com.libray.mng.services;
 import com.libray.mng.model.Books;
 import com.libray.mng.repository.BooksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,18 +31,28 @@ public class BookService {
         return booksRepository.findByName(name);
     }
 
-    public boolean updateBooks(Books books, Integer id){
-        if(booksRepository.existsById(id)){
-            Books books1= booksRepository.findBooksById(id);
-            books1.setName(books.getName());
-            books1.setAuthorId(books.getAuthorId());
-            books1.setQty(books.getQty());
-            books1.setPrice(books.getPrice());
-            booksRepository.save(books1);
-            return true;
+    public int updateBooks(Books books, Integer id){
+        int flag;
+        flag=0;
+        try{
+            if(booksRepository.existsById(id)){
+                Books books1= booksRepository.findBooksById(id);
+                books1.setName(books.getName());
+                books1.setAuthorId(books.getAuthorId());
+                books1.setQty(books.getQty());
+                books1.setPrice(books.getPrice());
+                booksRepository.save(books1);
+                flag=1;
+            }
+            else {
+
+            }
+            return flag;
         }
-        else {
-            return false;
+        catch (Exception e){
+            flag=2;
+            System.out.println(e.getMessage());
+            return flag;
         }
     }
 

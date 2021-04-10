@@ -5,66 +5,65 @@ import javax.persistence.*;
 @Table(name = "authors")
 public class Authors {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "authorid")
-    private Integer authorId;
+    private Integer authorid;
     @Column(name = "authorname")
-    private String authorName;
-    @Column(name = "authorname")
-    private Integer authorAge;
+    private String authorname;
+    @Column(name = "authorage")
+    private Integer authorage;
     @Column(name = "publishedbooks")
-    private Integer publishedBooks;
+    private Integer publishedbooks;
 
     public Authors() {
 
     }
 
-    public Authors(Integer authorId, String authorName, Integer authorAge, Integer publishedBooks) {
-        this.authorId = authorId;
-        this.authorName = authorName;
-        this.authorAge = authorAge;
-        this.publishedBooks = publishedBooks;
+    public Authors(String authorname, Integer authorage, Integer publishedbooks) {
+        this.authorname = authorname;
+        this.authorage = authorage;
+        this.publishedbooks = publishedbooks;
     }
 
-    public Integer getAuthorId() {
-        return authorId;
+    public Integer getAuthorid() {
+        return authorid;
     }
 
-    public void setAuthorId(Integer authorId) {
-        this.authorId = authorId;
+    public void setAuthorid(Integer authorid) {
+        this.authorid = authorid;
     }
 
-    public String getAuthorName() {
-        return authorName;
+    public String getAuthorname() {
+        return authorname;
     }
 
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
+    public void setAuthorname(String authorname) {
+        this.authorname = authorname;
     }
 
-    public Integer getAuthorAge() {
-        return authorAge;
+    public Integer getAuthorage() {
+        return authorage;
     }
 
-    public void setAuthorAge(Integer authorAge) {
-        this.authorAge = authorAge;
+    public void setAuthorage(Integer authorage) {
+        this.authorage = authorage;
     }
 
-    public Integer getPublishedBooks() {
-        return publishedBooks;
+    public Integer getPublishedbooks() {
+        return publishedbooks;
     }
 
-    public void setPublishedBooks(Integer publishedBooks) {
-        this.publishedBooks = publishedBooks;
+    public void setPublishedbooks(Integer publishedbooks) {
+        this.publishedbooks = publishedbooks;
     }
 
     @Override
     public String toString() {
         return "Authors{" +
-                "authorId=" + authorId +
-                ", authorName='" + authorName + '\'' +
-                ", authorAge=" + authorAge +
-                ", publishedBooks=" + publishedBooks +
+                "authorid=" + authorid +
+                ", authorname='" + authorname + '\'' +
+                ", authorage=" + authorage +
+                ", publishedbooks=" + publishedbooks +
                 '}';
     }
 }
